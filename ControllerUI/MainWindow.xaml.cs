@@ -1,4 +1,11 @@
-﻿using System.Text;
+﻿using ControllerUI.CustomExceptions;
+using ControllerUI.Entities;
+using ControllerUI.Extensions;
+using ControllerUI.Services.Classes;
+using System.Data;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +23,34 @@ namespace ControllerUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public readonly IGameService _gameService;
+        private List<GameEntity> _gameList;
+        public MainWindow(IGameService gameService)
+        {
+            _gameService = gameService;
+           
+        }
+
+        public MainWindow(): this (new GameService())
         {
             InitializeComponent();
+        }
+
+        private async void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _gameList = await _gameService.GetAllGamesAsync();
+                if(_gameList is null)
+                {
+                    MessageBox.Show("No games found!");
+                    return;
+                }
+            }
+            catch (Game404Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "404 Not Found!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
