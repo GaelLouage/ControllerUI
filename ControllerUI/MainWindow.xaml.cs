@@ -2,6 +2,9 @@
 using ControllerUI.Entities;
 using ControllerUI.Extensions;
 using ControllerUI.Services.Classes;
+using ControllerUI.Services.Interfaces;
+using ControllerUI.Singletons;
+using SharpDX.XInput;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
@@ -41,7 +44,8 @@ namespace ControllerUI
             try
             {
                 _gameList = await _gameService.GetAllGamesAsync();
-                if(_gameList is null)
+                await XControllerSingleton.XControllerInstance.RunAppAsync(Dispatcher, txtGetKeyPressed);
+                if (_gameList is null)
                 {
                     MessageBox.Show("No games found!");
                     return;

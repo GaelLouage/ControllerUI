@@ -19,3 +19,7 @@ C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\r
 C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\ControllerUI.pdb
 C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\ControllerUI.genruntimeconfig.cache
 C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\ref\ControllerUI.dll
+C:\Users\louag\source\repos\ControllerUI\ControllerUI\bin\Debug\net8.0-windows\SharpDX.dll
+C:\Users\louag\source\repos\ControllerUI\ControllerUI\bin\Debug\net8.0-windows\SharpDX.XInput.dll
+C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\ControllerUI.csproj.AssemblyReference.cache
+C:\Users\louag\source\repos\ControllerUI\ControllerUI\obj\Debug\net8.0-windows\ControllerUI.csproj.CopyComplete

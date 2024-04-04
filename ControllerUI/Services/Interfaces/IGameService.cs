@@ -1,6 +1,6 @@
 ﻿using ControllerUI.Entities;
 
-namespace ControllerUI.Services.Classes
+namespace ControllerUI.Services.Interfaces
 {
     public interface IGameService
     {
