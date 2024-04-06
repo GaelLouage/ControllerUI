@@ -26,7 +26,7 @@ namespace ControllerUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public readonly IGameService _gameService;
+        private readonly IGameService _gameService;
         private List<GameEntity> _gameList;
         public MainWindow(IGameService gameService)
         {
@@ -41,20 +41,8 @@ namespace ControllerUI
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            try
-            {
                 _gameList = await _gameService.GetAllGamesAsync();
                 await XControllerSingleton.XControllerInstance.RunAppAsync(Dispatcher, txtGetKeyPressed);
-                if (_gameList is null)
-                {
-                    MessageBox.Show("No games found!");
-                    return;
-                }
-            }
-            catch (Game404Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "404 Not Found!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
     }
 }

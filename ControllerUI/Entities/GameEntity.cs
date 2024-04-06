@@ -10,10 +10,5 @@ namespace ControllerUI.Entities
     public class GameEntity
     {
         public string? Name { get; set; }    
-        public string? Url { get; set; }
-        public void Run()
-        {
-            Process.Start(Url);
-        }
     }
 }

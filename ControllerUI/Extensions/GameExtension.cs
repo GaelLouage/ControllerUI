@@ -11,12 +11,11 @@ namespace ControllerUI.Extensions
 {
     public static class GameExtension
     {
-        public static async  Task<GameEntity?> GetGameData(this GameEntity gameEntity, string fileData)
+        public static async  Task<GameEntity?> GetGameData(this string gameExe, string fileData)
         {
             return  new GameEntity()
             {
-                Name = gameEntity.Name.SetGameName(fileData),
-                Url = await gameEntity.Url.SetGameUrlAsync(fileData)
+                Name = gameExe
             };
         }
     }

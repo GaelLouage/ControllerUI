@@ -11,8 +11,7 @@ namespace ControllerUI.Extensions
     {
         public  static string SetGameName(this string gameName, string fileData) => fileData
                .Split('\\')
-               .LastOrDefault()
-               .Replace(".url", "");
+               .LastOrDefault();
         public static async Task<string> SetGameUrlAsync(this string gameUrl, string fileData) =>
                  (await File.ReadAllLinesAsync(fileData)).FirstOrDefault(f => f
                 .ToLower()
